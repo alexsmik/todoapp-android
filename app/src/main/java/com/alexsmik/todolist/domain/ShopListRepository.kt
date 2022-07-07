@@ -1,9 +1,11 @@
-package com.example.todolist.domain
+package com.alexsmik.todolist.domain
+
+import androidx.lifecycle.LiveData
 
 interface ShopListRepository {
     fun addShopItem(shopItem: ShopItem)
     fun deleteShopItem(shopItem: ShopItem)
     fun editShopItem(shopItem: ShopItem)
     fun getShopItem(itemId: Int): ShopItem
-    fun getShopList(): List<ShopItem>
+    fun getShopList(): LiveData<List<ShopItem>>
 }

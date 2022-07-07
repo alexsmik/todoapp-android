@@ -1,4 +1,4 @@
-package com.example.todolist.domain
+package com.alexsmik.todolist.domain
 
 data class ShopItem (
     val name: String,
