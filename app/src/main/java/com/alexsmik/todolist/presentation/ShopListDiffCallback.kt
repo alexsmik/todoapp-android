@@ -8,18 +8,18 @@ class ShopListDiffCallback (
     private val newList: List<ShopItem>,
 ): DiffUtil.Callback() {
     override fun getOldListSize(): Int {
-        TODO("Not yet implemented")
+        TODO( )
     }
 
     override fun getNewListSize(): Int {
-        TODO("Not yet implemented")
+        TODO( )
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        TODO( )
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        TODO( )
     }
 }
