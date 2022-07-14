@@ -21,7 +21,11 @@ class ShopItemViewModel: ViewModel() {
     fun addShopItem(inputName: String?, inputCount: String?) {
         val name = parseName(inputName)
         val count = parseCount(inputCount)
-        addShopItemUseCase.addShopItem(shopItem)
+        val fieldsValid = validateInput(name, count)
+        if (fieldsValid) {
+            val shopItem = ShopItem(name, count, true)
+            addShopItemUseCase.addShopItem(shopItem)
+        }
     }
     fun editShopItem(shopItem: ShopItem) {
         editShopItemUseCase.editShopItem(shopItem)
