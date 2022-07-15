@@ -1,5 +1,6 @@
 package com.alexsmik.todolist.presentation
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alexsmik.todolist.data.ShopListRepositoryImpl
 import com.alexsmik.todolist.domain.AddShopItemUseCase
@@ -14,6 +15,8 @@ class ShopItemViewModel: ViewModel() {
     private val  getShopItemUseCase = GetShopItemUseCase(repository)
     private val addShopItemUseCase = AddShopItemUseCase(repository)
     private val editShopItemUseCase = EditShopItemUseCase(repository)
+
+    val errorInputName = MutableLiveData<Boolean>()
 
     fun getShopItem(shopItemId: Int) {
         val item = getShopItemUseCase.getShopItem(shopItemId)
@@ -49,7 +52,7 @@ class ShopItemViewModel: ViewModel() {
     private fun validateInput(name: String, count: Int): Boolean {
         var result = true
         if (name.isBlank()) {
-            // TODO: show error input name
+            errorInputName.value = true
             result = false
         }
         if (count <= 0) {
