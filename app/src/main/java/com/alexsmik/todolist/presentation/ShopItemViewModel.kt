@@ -29,6 +29,10 @@ class ShopItemViewModel: ViewModel() {
     val shopItem: LiveData<ShopItem>
         get() = _shopItem
 
+    private val _shouldCloseScreen = MutableLiveData<Unit>()
+    val shouldCloseScreen: LiveData<Unit>
+        get() = _shouldCloseScreen
+
     fun getShopItem(shopItemId: Int) {
         val item = getShopItemUseCase.getShopItem(shopItemId)
     }
@@ -39,6 +43,7 @@ class ShopItemViewModel: ViewModel() {
         if (fieldsValid) {
             val shopItem = ShopItem(name, count, true)
             addShopItemUseCase.addShopItem(shopItem)
+            finishWork()
         }
     }
     fun editShopItem(inputName: String?, inputCount: String?) {
@@ -48,6 +53,7 @@ class ShopItemViewModel: ViewModel() {
         if (fieldsValid) {
             val shopItem = ShopItem(name, count, true)
             editShopItemUseCase.editShopItem(shopItem)
+            finishWork()
         }
     }
     private fun parseName(inputName: String?): String {
@@ -77,5 +83,8 @@ class ShopItemViewModel: ViewModel() {
     }
     private fun resetErrorInputCount() {
         _errorInputCount.value = false
+    }
+    private fun finishWork() {
+        _shouldCloseScreen.value = Unit
     }
 }
