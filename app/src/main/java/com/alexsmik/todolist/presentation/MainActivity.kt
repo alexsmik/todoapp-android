@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.alexsmik.todolist.R
 import com.alexsmik.todolist.domain.ShopItem
+import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.EXTRA_SCREEN_MODE
+import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.MODE_ADD
+import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.MODE_EDIT
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val buttonAddItem = findViewById<FloatingActionButton>(R.id.button_add_shop_item)
         buttonAddItem.setOnClickListener {
             val intent = Intent(this, ShopItemActivity::class.java)
-            intent.putExtra("extra_mode", "mode_add")
+            intent.putExtra(EXTRA_SCREEN_MODE, MODE_ADD)
             startActivity(intent)
         }
     }
@@ -80,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
             val intent = Intent(this, ShopItemActivity::class.java)
-            intent.putExtra("extra_mode", "mode_edit")
+            intent.putExtra(EXTRA_SCREEN_MODE, MODE_EDIT)
             startActivity(intent)
         }
     }
