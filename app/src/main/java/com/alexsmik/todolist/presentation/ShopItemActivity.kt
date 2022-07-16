@@ -15,6 +15,7 @@ class ShopItemActivity : AppCompatActivity() {
     }
     companion object {
         const val EXTRA_SCREEN_MODE = "extra_mode"
+        const val EXTRA_SHOP_ITEM_ID = "extra_shop_item_id"
         const val MODE_EDIT = "mode_edit"
         const val MODE_ADD = "mode_add"
     }
