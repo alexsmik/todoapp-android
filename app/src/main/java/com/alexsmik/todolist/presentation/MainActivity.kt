@@ -1,20 +1,11 @@
 package com.alexsmik.todolist.presentation
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.alexsmik.todolist.R
-import com.alexsmik.todolist.domain.ShopItem
-import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.EXTRA_SCREEN_MODE
-import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.MODE_ADD
-import com.alexsmik.todolist.presentation.ShopItemActivity.Companion.MODE_EDIT
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
@@ -32,8 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
         val buttonAddItem = findViewById<FloatingActionButton>(R.id.button_add_shop_item)
         buttonAddItem.setOnClickListener {
-            val intent = Intent(this, ShopItemActivity::class.java)
-            intent.putExtra(EXTRA_SCREEN_MODE, MODE_ADD)
+            val intent = ShopItemActivity.newIntentAddItem(this)
             startActivity(intent)
         }
     }
@@ -82,8 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
-            val intent = Intent(this, ShopItemActivity::class.java)
-            intent.putExtra(EXTRA_SCREEN_MODE, MODE_EDIT)
+            val intent = ShopItemActivity.newIntentEditItem(this, it.id)
             startActivity(intent)
         }
     }

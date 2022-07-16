@@ -2,6 +2,7 @@ package com.alexsmik.todolist.presentation
 
 import android.content.Context
 import android.content.Intent
+import android.content.LocusId
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -26,5 +27,10 @@ class ShopItemActivity : AppCompatActivity() {
         intent.putExtra(EXTRA_SCREEN_MODE, MODE_ADD)
         return intent
     }
-
+    fun newIntentEditItem(context: Context, shopItemId: Int): Intent {
+        val intent = Intent(context, ShopItemActivity::class.java)
+        intent.putExtra(EXTRA_SCREEN_MODE, MODE_EDIT)
+        intent.putExtra(EXTRA_SHOP_ITEM_ID, shopItemId)
+        return intent
+    }
 }
