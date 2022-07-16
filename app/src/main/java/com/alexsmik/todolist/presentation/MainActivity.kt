@@ -1,5 +1,6 @@
 package com.alexsmik.todolist.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.alexsmik.todolist.R
 import com.alexsmik.todolist.domain.ShopItem
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
@@ -23,6 +26,12 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList = (it)
+        }
+        val buttonAddItem = findViewById<FloatingActionButton>(R.id.button_add_shop_item)
+        buttonAddItem.setOnClickListener {
+            val intent = Intent(this, ShopItemActivity::class.java)
+            intent.putExtra("extra_mode", "mode_add")
+            startActivity(intent)
         }
     }
 
