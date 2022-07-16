@@ -13,7 +13,7 @@ class ShopItemViewModel: ViewModel() {
 
     private val repository = ShopListRepositoryImpl
 
-    private val  getShopItemUseCase = GetShopItemUseCase(repository)
+    private val getShopItemUseCase = GetShopItemUseCase(repository)
     private val addShopItemUseCase = AddShopItemUseCase(repository)
     private val editShopItemUseCase = EditShopItemUseCase(repository)
 
