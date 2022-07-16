@@ -79,7 +79,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupClickListener() {
         shopListAdapter.onShopItemClickListener = {
-            Log.d("a", it.toString())
+            val intent = Intent(this, ShopItemActivity::class.java)
+            intent.putExtra("extra_mode", "mode_edit")
+            startActivity(intent)
         }
     }
 
