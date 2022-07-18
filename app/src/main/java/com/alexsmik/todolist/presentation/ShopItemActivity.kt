@@ -28,7 +28,6 @@ class ShopItemActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
         initViews()
         val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
-        Log.d("ShopItemActivity", mode.toString())
     }
     private fun parseIntent() {
         if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
