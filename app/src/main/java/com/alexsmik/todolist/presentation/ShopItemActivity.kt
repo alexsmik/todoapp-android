@@ -10,6 +10,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.alexsmik.todolist.R
+import com.alexsmik.todolist.domain.ShopItem
 import com.google.android.material.textfield.TextInputLayout
 
 class ShopItemActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class ShopItemActivity : AppCompatActivity() {
     private lateinit var etCount: EditText
     private lateinit var buttonSave: Button
     private var screenMode = ""
+    private var shopItemId = ShopItem.UNDEFINED_ID
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_item)
@@ -39,6 +41,12 @@ class ShopItemActivity : AppCompatActivity() {
             throw RuntimeException("Unknown screen mode $mode")
         }
         screenMode = mode
+        if (screenMode == MODE_EDIT) {
+            if (!intent.hasExtra(EXTRA_SHOP_ITEM_ID)) {
+                throw RuntimeException("Param shop item id is absent")
+            }
+            shopItemId = intent.getIntExtra(EXTRA_SHOP_ITEM_ID, ShopItem.UNDEFINED_ID)
+        }
     }
     private fun initViews() {
         tilName = findViewById(R.id.til_name)
