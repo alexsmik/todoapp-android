@@ -22,15 +22,14 @@ class ShopItemActivity : AppCompatActivity() {
     private lateinit var etName: EditText
     private lateinit var etCount: EditText
     private lateinit var buttonSave: Button
-    private var screenMode = ""
+    private var screenMode = MODE_UNKNOWN
     private var shopItemId = ShopItem.UNDEFINED_ID
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_item)
         viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
         initViews()
-        val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
-        Log.d("ShopItemActivity", mode.toString())
+        parseIntent()
     }
     private fun parseIntent() {
         if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
@@ -60,6 +59,7 @@ class ShopItemActivity : AppCompatActivity() {
         private const val EXTRA_SHOP_ITEM_ID = "extra_shop_item_id"
         private const val MODE_EDIT = "mode_edit"
         private const val MODE_ADD = "mode_add"
+        private const val MODE_UNKNOWN = ""
     }
     fun newIntentAddItem(context: Context): Intent {
         val intent = Intent(context, ShopItemActivity::class.java)
