@@ -30,6 +30,11 @@ class ShopItemActivity : AppCompatActivity() {
         val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
         Log.d("ShopItemActivity", mode.toString())
     }
+    private fun parseIntent() {
+        if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
+            throw RuntimeException("Param screen mode is absent")
+        }
+    }
     private fun initViews() {
         tilName = findViewById(R.id.til_name)
         tilCount = findViewById(R.id.til_count)

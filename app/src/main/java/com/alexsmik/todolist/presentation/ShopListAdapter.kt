@@ -12,6 +12,7 @@ import com.alexsmik.todolist.domain.ShopItem
 class ShopListAdapter : ListAdapter<ShopItem, ShopItemViewHolder>(ShopItemDiffCallback()) {
 
 
+    var submitList: List<ShopItem>?
     var onShopItemLongClickListener: ((ShopItem) -> Unit)? = null
     var onShopItemClickListener: ((ShopItem) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopItemViewHolder {
