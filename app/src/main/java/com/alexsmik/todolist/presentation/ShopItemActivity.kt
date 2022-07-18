@@ -21,18 +21,24 @@ class ShopItemActivity : AppCompatActivity() {
     private lateinit var etName: EditText
     private lateinit var etCount: EditText
     private lateinit var buttonSave: Button
-
+    private var screenMode = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_item)
         viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
         initViews()
         val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
+        Log.d("ShopItemActivity", mode.toString())
     }
     private fun parseIntent() {
         if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
             throw RuntimeException("Param screen mode is absent")
         }
+        val mode = intent.getStringExtra(EXTRA_SCREEN_MODE)
+        if (mode != MODE_EDIT && mode != MODE_ADD) {
+            throw RuntimeException("Unknown screen mode $mode")
+        }
+        screenMode = mode
     }
     private fun initViews() {
         tilName = findViewById(R.id.til_name)
