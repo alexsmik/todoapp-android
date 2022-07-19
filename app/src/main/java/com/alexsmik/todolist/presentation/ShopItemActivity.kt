@@ -33,10 +33,10 @@ class ShopItemActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ShopItemViewModel::class.java]
         initViews()
         addTextChangeListeners()
-        when (screenMode) {
-            MODE_EDIT -> launchEditMode()
-            MODE_ADD -> launchAddMode()
-        }
+        launchRightMode()
+        observeViewModel()
+    }
+    private fun observeViewModel() {
         viewModel.errorInputCount.observe(this) {
             val message = if (it) {
                 getString(R.string.error_input_count)
@@ -55,6 +55,12 @@ class ShopItemActivity : AppCompatActivity() {
         }
         viewModel.shouldCloseScreen.observe(this){
             finish()
+        }
+    }
+    private fun launchRightMode() {
+        when (screenMode) {
+            MODE_EDIT -> launchEditMode()
+            MODE_ADD -> launchAddMode()
         }
     }
     private fun addTextChangeListeners() {
