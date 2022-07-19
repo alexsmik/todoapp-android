@@ -51,10 +51,19 @@ class ShopItemActivity : AppCompatActivity() {
         }
     }
     private fun launchEditMode() {
-
+        viewModel.getShopItem(shopItemId)
+        viewModel.shopItem.observe(this) {
+            etName.setText(it.name)
+            etCount.setText(it.count.toString())
+        }
+        buttonSave.setOnClickListener {
+            viewModel.editShopItem(etName.text?.toString(), etCount.text?.toString())
+        }
     }
     private fun launchAddMode() {
-
+        buttonSave.setOnClickListener {
+            viewModel.editShopItem(etName.text?.toString(), etCount.text?.toString())
+        }
     }
     private fun parseIntent() {
         if (!intent.hasExtra(EXTRA_SCREEN_MODE)) {
