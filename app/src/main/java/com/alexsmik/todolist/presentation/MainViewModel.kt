@@ -1,11 +1,13 @@
-package com.alexsmik.todolist.presentation
+package com.sumin.shoppinglist.presentation
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.alexsmik.todolist.data.ShopListRepositoryImpl
-import com.alexsmik.todolist.domain.GetShopListUseCase
-import com.alexsmik.todolist.domain.DeleteShopItemUseCase
-import com.alexsmik.todolist.domain.EditShopItemUseCase
-import com.alexsmik.todolist.domain.ShopItem
+import com.sumin.shoppinglist.data.ShopListRepositoryImpl
+import com.sumin.shoppinglist.domain.DeleteShopItemUseCase
+import com.sumin.shoppinglist.domain.EditShopItemUseCase
+import com.sumin.shoppinglist.domain.GetShopListUseCase
+import com.sumin.shoppinglist.domain.ShopItem
 
 class MainViewModel : ViewModel() {
 
@@ -20,6 +22,7 @@ class MainViewModel : ViewModel() {
     fun deleteShopItem(shopItem: ShopItem) {
         deleteShopItemUseCase.deleteShopItem(shopItem)
     }
+
     fun changeEnableState(shopItem: ShopItem) {
         val newItem = shopItem.copy(enabled = !shopItem.enabled)
         editShopItemUseCase.editShopItem(newItem)

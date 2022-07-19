@@ -1,12 +1,13 @@
-package com.alexsmik.todolist.presentation
+package com.sumin.shoppinglist.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import com.alexsmik.todolist.domain.ShopItem
+import com.sumin.shoppinglist.domain.ShopItem
 
-class ShopListDiffCallback (
+class ShopListDiffCallback(
     private val oldList: List<ShopItem>,
     private val newList: List<ShopItem>,
 ): DiffUtil.Callback() {
+
     override fun getOldListSize(): Int {
         return oldList.size
     }
