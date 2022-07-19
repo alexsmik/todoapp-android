@@ -1,9 +1,9 @@
-package com.sumin.shoppinglist.data
+package com.alexsmik.todolist.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.sumin.shoppinglist.domain.ShopItem
-import com.sumin.shoppinglist.domain.ShopListRepository
+import com.alexsmik.todolist.domain.ShopItem
+import com.alexsmik.todolist.domain.ShopListRepository
 import kotlin.random.Random
 
 object ShopListRepositoryImpl : ShopListRepository {

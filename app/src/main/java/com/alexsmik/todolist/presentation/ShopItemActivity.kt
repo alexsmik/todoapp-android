@@ -1,8 +1,8 @@
-package com.sumin.shoppinglist.presentation
+package com.alexsmik.todolist.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sumin.shoppinglist.R
+import com.alexsmik.todolist.R
 
 class ShopItemActivity : AppCompatActivity() {
     private lateinit var viewModel: ShopItemViewModel

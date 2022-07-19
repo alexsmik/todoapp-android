@@ -1,4 +1,4 @@
-package com.sumin.shoppinglist.domain
+package com.alexsmik.todolist.domain
 
 class AddShopItemUseCase(private val shopListRepository: ShopListRepository) {
 

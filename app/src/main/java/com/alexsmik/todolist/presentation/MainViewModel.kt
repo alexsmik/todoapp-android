@@ -1,13 +1,11 @@
-package com.sumin.shoppinglist.presentation
+package com.alexsmik.todolist.presentation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.sumin.shoppinglist.data.ShopListRepositoryImpl
-import com.sumin.shoppinglist.domain.DeleteShopItemUseCase
-import com.sumin.shoppinglist.domain.EditShopItemUseCase
-import com.sumin.shoppinglist.domain.GetShopListUseCase
-import com.sumin.shoppinglist.domain.ShopItem
+import com.alexsmik.todolist.data.ShopListRepositoryImpl
+import com.alexsmik.todolist.domain.DeleteShopItemUseCase
+import com.alexsmik.todolist.domain.EditShopItemUseCase
+import com.alexsmik.todolist.domain.GetShopListUseCase
+import com.alexsmik.todolist.domain.ShopItem
 
 class MainViewModel : ViewModel() {
 

@@ -1,4 +1,4 @@
-package com.sumin.shoppinglist.presentation
+package com.alexsmik.todolist.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,8 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.sumin.shoppinglist.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.alexsmik.todolist.R
 
 class MainActivity : AppCompatActivity() {
 

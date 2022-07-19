@@ -1,7 +1,7 @@
-package com.sumin.shoppinglist.presentation
+package com.alexsmik.todolist.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import com.sumin.shoppinglist.domain.ShopItem
+import com.alexsmik.todolist.domain.ShopItem
 
 class ShopItemDiffCallback: DiffUtil.ItemCallback<ShopItem>() {
 
