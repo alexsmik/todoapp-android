@@ -49,6 +49,25 @@ class ShopItemActivity : AppCompatActivity() {
             MODE_EDIT -> launchEditMode()
             MODE_ADD -> launchAddMode()
         }
+        viewModel.errorInputCount.observe(this) {
+            val message = if (it) {
+                getString(R.string.error_input_count)
+            } else {
+                null
+            }
+            tilCount.error = message
+        }
+        viewModel.errorInputName.observe(this) {
+            val message = if (it) {
+                getString(R.string.error_input_name)
+            } else {
+                null
+            }
+            tilCount.error = message
+        }
+        viewModel.shouldCloseScreen.observe(this){
+            finish()
+        }
     }
     private fun launchEditMode() {
         viewModel.getShopItem(shopItemId)
@@ -62,7 +81,7 @@ class ShopItemActivity : AppCompatActivity() {
     }
     private fun launchAddMode() {
         buttonSave.setOnClickListener {
-            viewModel.editShopItem(etName.text?.toString(), etCount.text?.toString())
+            viewModel.addShopItem(etName.text?.toString(), etCount.text?.toString())
         }
     }
     private fun parseIntent() {
