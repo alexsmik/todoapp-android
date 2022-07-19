@@ -5,22 +5,15 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ToDoList"
-        tools:targetApi="31" >
-        <activity
-            android:name=".ShopItemActivity"
-            android:exported="false"
-            android:label="@string/title_activity_shop_item"
-            android:theme="@style/Theme.ToDoList.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+        android:theme="@style/Theme.ShoppingList">
+        <activity android:name=".presentation.ShopItemActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".presentation.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
