@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), ShopItemFragment.OnEditingFinishedList
     }
 
     private fun isOnePaneMode(): Boolean {
-        return binding.shopItemContainer == null
+        return false
     }
 
     private fun launchFragment(fragment: Fragment) {
